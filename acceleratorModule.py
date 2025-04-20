@@ -1,3 +1,5 @@
+import math
+
 class accelerator_module():
     def __init__(self, num_of_turns , current , cross_sectional_area , gap , delta_x):
         self.num_of_turns = num_of_turns
@@ -9,7 +11,7 @@ class accelerator_module():
 
     def calc_proj_final_velocity(self , mass , initial_velocity):
         acceleration = self.force / mass
-        final_velocity = pow((initial_velocity + (2 * acceleration * self.delta_x)) , 0.5)
+        final_velocity = math.sqrt(initial_velocity + (2 * acceleration * self.delta_x))
         return final_velocity
 
     def print_proj_stats(self , mass , initial_velocity):
